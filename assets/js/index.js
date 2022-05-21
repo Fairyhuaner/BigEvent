@@ -14,7 +14,7 @@ $(function () {
 const layer = layui.layer;
 
 // 获取用户信息
-const getUserInfo = () => {
+function getUserInfo () {
     $.ajax({
         type: 'GET',
         url: '/my/userinfo',
@@ -23,7 +23,7 @@ const getUserInfo = () => {
         // },
         success: res => {
             if (res.status !== 0) return layer.msg(res.message);
-            layer.msg(res.message);
+            // layer.msg(res.message);
             // console.log(res.data);
             renderAvatar(res.data);
         },
@@ -40,7 +40,7 @@ const getUserInfo = () => {
 // 渲染头像函数
 const renderAvatar = (user) => {
     // 获取名字
-    const name = user.nickname || user.username;
+    let name = user.nickname || user.username;
     $('#welcome').html(`欢迎 ${name}`);
     // 获取头像
     if (user.user_pic !== null) {
@@ -48,7 +48,7 @@ const renderAvatar = (user) => {
         $('.text-avatar').hide();
     } else {
         $('.layui-nav-img').hide();
-        const firstName = name[0].toUpperCase();
+        let firstName = name[0].toUpperCase();
         $('.text-avatar').html(firstName).show();
     }
 }

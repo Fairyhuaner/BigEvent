@@ -1,5 +1,5 @@
 $(function () {
-    const baseUrl = `http://www.liulongbin.top:3007`;
+    // const baseUrl = `http://www.liulongbin.top:3007`;
 
     // 点击切换效果
     $('#link_reg').click(() => {
@@ -54,7 +54,7 @@ $(function () {
             data: $(this).serialize(),
             success: res => {
                 if (res.status !== 0) return layer.msg(res.message);
-                layer.msg(res.message);
+                // layer.msg(res.message);
                 // console.log(res);
                 localStorage.setItem('token', res.token);
                 location.href = '/index.html';

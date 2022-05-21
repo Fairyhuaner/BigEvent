@@ -6,7 +6,7 @@ $.ajaxPrefilter((option) => {
     option.url = `http://www.liulongbin.top:3007` + option.url;
     // 在请求之前有权限的接口注入token
     // console.log((option.url.indexOf('/my/') + 1));
-    if (option.url.includes('/my/') + 1) {
+    if (option.url.includes('/my/')) {
         option.headers = {
             Authorization: localStorage.getItem('token'),
         }
